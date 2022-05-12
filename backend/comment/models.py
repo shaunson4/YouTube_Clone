@@ -12,3 +12,5 @@ class Comment(models.Model):
     text = models.CharField(max_length=100)
     likes = models.IntegerField()
     dislikes = models.IntegerField()
+
+# Create your models here.
