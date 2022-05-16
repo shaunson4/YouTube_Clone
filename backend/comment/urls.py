@@ -7,5 +7,4 @@ urlpatterns = [
     path('<int:pk>/', views.comment_detail),
     # Post a new record (Auth required)
     path('add/', views.add_record),
-
 ]
