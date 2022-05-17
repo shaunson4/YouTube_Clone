@@ -2,11 +2,14 @@ import axios from "axios";
 import { useState } from "react";
 
 
-
 const SearchPage=(props)=>{
     const [videos, setVideos] = useState([]);
     const [searchTerm, setSearchTerm] = useState("")
-    
+
+    function handleSubmit(formEvent){
+      formEvent.preventDefault();
+      alert('Searched Videos request is submitted!');
+    }
 
     const fetchVideos = async () => {
         try {
@@ -25,9 +28,9 @@ const SearchPage=(props)=>{
       {console.log('searchTerm in render', searchTerm)}
       <button onClick={fetchVideos}>Click to search</button>
 
-     <form action="" method="">
-        <label for="search_video">search video:</label>
-        <input type="text" name="search_video"></input>
+     <form onSubmit={handleSubmit}>
+        <label>searchVideo</label>
+        <input type="text" onChange={(event) => setSearchTerm(event.target.value)} value={searchTerm}/> 
             </form>
       </div>
   )
