@@ -1,8 +1,13 @@
 import axios from "axios";
-import { useState } from "react";
+import { useState,} from "react";
+import { KEY } from "../../localKey";
+
+
 
 
 const SearchPage=(props)=>{
+    // let {searchQuery} = useParams();
+
     const [videos, setVideos] = useState([]);
     const [searchTerm, setSearchTerm] = useState("")
 
@@ -14,8 +19,8 @@ const SearchPage=(props)=>{
     const fetchVideos = async () => {
         try {
             //using string interpolation to insert searchTerm to the axios url string
-          let response = await axios.get(`https://www.googleapis.com/youtube/v3/search?q=${searchTerm}&key=AIzaSyCIYSGY1-KiGgmb3f6F1FthlDXC0RhG9V8`, );
-          setVideos(response.data.items);
+          let response = await axios.get(`https://www.googleapis.com/youtube/v3/search?q=${searchTerm}&key=${KEY}`, );
+          setVideos(response.data);
         } catch (error) {
           console.log(error.message);
         }

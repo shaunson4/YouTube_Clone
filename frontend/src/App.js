@@ -1,11 +1,14 @@
 // General Imports
 import { Routes, Route } from "react-router-dom";
+import {useState } from 'react';
 import "./App.css";
+import axios from 'axios'
 
 // Pages Imports
 import HomePage from "./pages/HomePage/HomePage";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import RegisterPage from "./pages/RegisterPage/RegisterPage";
+import VideoPlayer from "./components/VideoPlayer/VideoPlayer";
 // import Page from "./pages/Pages/Page";
 import SearchPage from "./components/SearchPage/SearchPage";
 
@@ -17,6 +20,8 @@ import Footer from "./components/Footer/Footer";
 import PrivateRoute from "./utils/PrivateRoute";
 
 function App() {
+
+
   return (
     <div>
       <Navbar />
@@ -27,6 +32,7 @@ function App() {
             <PrivateRoute>
               <HomePage />
             </PrivateRoute>
+            
           }
         />
         <Route path="/register" element={<RegisterPage />} />
@@ -34,10 +40,11 @@ function App() {
         <Route path="/addcomment" element= {<PrivateRoute>Page</PrivateRoute>}></Route>
         <Route path="/search" element={
           <PrivateRoute>
-          <SearchPage />
+          <SearchPage  />
         </PrivateRoute>
-        } 
+         } 
         />
+        <Route path ="/VideoPlayer" element={<VideoPlayer />}/>
       </Routes>
       <Footer />
     </div>
